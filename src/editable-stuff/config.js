@@ -42,7 +42,7 @@ const about = {
   imageLink: require("../editable-stuff/profile.jpg"),
   imageSize: 375,
   message:
-    "My name is Vaidehi Joshi. I am currently pursuing my Master’s in Computer Science at San Jose State University. I am actively seeking internship opportunities for summer 2023. I have a strong technical and quantitative aptitude. I am always keen to learn new things and take on new challenges.",
+    "My name is Vaidehi Joshi. I am currently pursuing my Master’s in Computer Science at San Jose State University. I am actively seeking full-time opportunities for 2024. I have a huge passion for problem-solving and have been thrilled to solve complex engineering problems through my work. Looking forward to taking on new challenges!",
   resume: require("../editable-stuff/VaidehiJoshi.pdf"),
 };
 
