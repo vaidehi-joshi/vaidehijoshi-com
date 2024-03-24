@@ -1,6 +1,6 @@
 
 {
   "redirects": [
-
+    { "source": "/resume", "destination": "/static/media/VaidehiJoshi.cfc179ad273ff875b9af.pdf" }
   ]
 }
