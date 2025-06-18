@@ -42,8 +42,7 @@ const about = {
   imageLink: require("../editable-stuff/profile.jpg"),
   imageSize: 375,
   message:
-    "My name is Vaidehi Joshi. I am currently pursuing my Master’s in Computer Science at San Jose State University. I am actively seeking full-time opportunities for 2024. I have a huge passion for problem-solving and have been thrilled to solve complex engineering problems through my work. Looking forward to taking on new challenges!",
-  resume: require("../editable-stuff/VaidehiJoshi.pdf"),
+    "Hi! I'm just a girl, standing in front of a bug, pretending she knows what went wrong. Welcome to my internet nook."
 };
 
 // PROJECTS SECTION
@@ -103,7 +102,7 @@ const skills = {
     { name: "Positivity", value: 80 },
     { name: "Adaptability", value: 85 },
     { name: "Problem Solving", value: 90 },
-    { name: "Empathy", value: 90 },
+    { name: "Managing healthy coffee addiction", value: 90 },
     { name: "Organization", value: 70 },
     { name: "Creativity", value: 90 },
   ],
@@ -114,7 +113,7 @@ const getInTouch = {
   show: true,
   heading: "Get In Touch",
   message:
-    "I'm currently looking for Software Engineering or Machine Learning opportunities! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at",
+    "I'm currently looking for Software Engineering opportunities! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at",
   email: "vaidehijoshi100@gmail.com",
 };
 
