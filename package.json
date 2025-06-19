@@ -31,8 +31,8 @@
     "custom-deploy": "node pages.js"
   },
   "engines": {
-    "npm": "^10.8.2",
-    "node": "^18.x"
+    "npm": ">=10.8.2",
+    "node": ">=18.x"
   },
   "eslintConfig": {
     "extends": [
