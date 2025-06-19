@@ -4,6 +4,7 @@ import { Jumbotron } from "./migration";
 import Row from "react-bootstrap/Row";
 import ProjectCard from "./ProjectCard";
 import axios from "axios";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const dummyProject = {
   name: null,
@@ -25,6 +26,9 @@ const Project = ({ heading, username, length, specfic }) => {
   );
 
   const [projectsArray, setProjectsArray] = useState([]);
+
+  const { elementRef: headingRef, isVisible: headingVisible } = useScrollAnimation(0.2);
+  const { elementRef: projectsRef, isVisible: projectsVisible } = useScrollAnimation(0.3, 200);
 
   const fetchRepos = useCallback(async () => {
     let repoList = [];
@@ -57,24 +61,34 @@ const Project = ({ heading, username, length, specfic }) => {
   return (
     <Jumbotron fluid id="projects" className="bg-light m-0">
       <Container className="">
-        <h2 className="display-4 pb-5 text-center">{heading}</h2>
-        <Row>
-          {projectsArray.length
-            ? projectsArray.map((project, index) => (
-              <ProjectCard
-                key={`project-card-${index}`}
-                id={`project-card-${index}`}
-                value={project}
-              />
-            ))
-            : dummyProjectsArr.map((project, index) => (
-              <ProjectCard
-                key={`dummy-${index}`}
-                id={`dummy-${index}`}
-                value={project}
-              />
-            ))}
-        </Row>
+        <h2 
+          ref={headingRef}
+          className={`display-4 pb-5 text-center scroll-animate ${headingVisible ? 'animate-in' : ''}`}
+        >
+          {heading}
+        </h2>
+        <div 
+          ref={projectsRef}
+          className={`scroll-animate-stagger ${projectsVisible ? 'animate-in' : ''}`}
+        >
+          <Row>
+            {projectsArray.length
+              ? projectsArray.map((project, index) => (
+                <ProjectCard
+                  key={`project-card-${index}`}
+                  id={`project-card-${index}`}
+                  value={project}
+                />
+              ))
+              : dummyProjectsArr.map((project, index) => (
+                <ProjectCard
+                  key={`dummy-${index}`}
+                  id={`dummy-${index}`}
+                  value={project}
+                />
+              ))}
+          </Row>
+        </div>
       </Container>
     </Jumbotron>
   );

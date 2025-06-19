@@ -2,9 +2,14 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Typist from 'react-typist-component';
 import { Jumbotron } from "./migration";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const MainBody = React.forwardRef(
   ({ gradient, title, message, icons }, ref) => {
+    const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation(0.1);
+    const { elementRef: messageRef, isVisible: messageVisible } = useScrollAnimation(0.2, 300);
+    const { elementRef: iconsRef, isVisible: iconsVisible } = useScrollAnimation(0.3, 600);
+
     return (
       <Jumbotron
         fluid
@@ -17,15 +22,29 @@ const MainBody = React.forwardRef(
       >
         <div id="stars"></div>
         <Container className="text-center">
-          <h1 ref={ref} className="display-1">
+          <h1 
+            ref={(el) => {
+              titleRef.current = el;
+              if (ref) ref.current = el;
+            }} 
+            className={`display-1 scroll-animate-up ${titleVisible ? 'animate-in' : ''}`}
+          >
             {title}
           </h1>
-          <Typist>
-            <div className="lead typist">
-              {message}
-            </div>
-          </Typist>
-          <div className="p-5">
+          <div 
+            ref={messageRef}
+            className={`scroll-animate ${messageVisible ? 'animate-in' : ''}`}
+          >
+            <Typist>
+              <div className="lead typist">
+                {message}
+              </div>
+            </Typist>
+          </div>
+          <div 
+            ref={iconsRef}
+            className={`p-5 scroll-animate-stagger ${iconsVisible ? 'animate-in' : ''}`}
+          >
             {icons.map((icon, index) => (
               <a
                 key={`social-icon-${index}`}
@@ -34,12 +53,12 @@ const MainBody = React.forwardRef(
                 href={icon.url}
                 aria-label={`My ${icon.image.split("-")[1]}`}
               >
-                <i className={`fab ${icon.image}  fa-3x socialicons`} />
+                <i className={`fab ${icon.image} fa-3x socialicons`} />
               </a>
             ))}
           </div>
           <a
-            className="btn btn-outline-light btn-lg "
+            className="btn btn-outline-light btn-lg scroll-animate-scale"
             href="#aboutme"
             role="button"
             aria-label="Learn more about me"

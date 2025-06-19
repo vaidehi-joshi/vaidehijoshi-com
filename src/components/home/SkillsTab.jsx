@@ -1,10 +1,16 @@
 import React from "react";
 import Col from "react-bootstrap/Col";
 import SkillsBar from "./SkillsBar";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 function SkillsSection({ skills, isScrolled }) {
+  const { elementRef: skillsRef, isVisible: skillsVisible } = useScrollAnimation(0.2);
+
   return (
-    <>
+    <div 
+      ref={skillsRef}
+      className={`scroll-animate-stagger ${skillsVisible ? 'animate-in' : ''}`}
+    >
       {skills.map((skill, index) => (
         <SkillsBar
           key={`${skill}-${index}`}
@@ -13,7 +19,7 @@ function SkillsSection({ skills, isScrolled }) {
           isScrolled={isScrolled}
         />
       ))}
-    </>
+    </div>
   );
 }
 
