@@ -9,7 +9,7 @@ const mainBody = {
   firstName: "Vaidehi",
   middleName: "",
   lastName: "Joshi",
-  message: "I am a software engineer with a keen focus on facilitating positive outcomes and driving meaningful impact through my work.",
+  message: "I am a software engineer with a keen focus on driving meaningful impact through my work.",
   icons: [
     {
       image: "fa-github",
@@ -42,7 +42,8 @@ const about = {
   imageLink: require("../editable-stuff/profile.jpg"),
   imageSize: 375,
   message:
-    "Hi! I'm just a girl, standing in front of a bug, pretending she knows what went wrong. Welcome to my internet nook."
+    "Hi, Welcome to my internet nook! I'm just a girl, standing in front of a bug, pretending she knows what went wrong.",
+  resume: "https://docs.google.com/document/d/1YGWq76L01yuJpeM8zccYV8U_2gedBJxu56-lNyt1AnA/edit?usp=sharing",
 };
 
 // PROJECTS SECTION

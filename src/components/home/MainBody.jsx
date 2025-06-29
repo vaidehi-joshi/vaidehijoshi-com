@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Typist from 'react-typist-component';
 import { Jumbotron } from "./migration";
@@ -6,9 +6,18 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const MainBody = React.forwardRef(
   ({ gradient, title, message, icons }, ref) => {
-    const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation(0.1);
+    const [iconsVisible, setIconsVisible] = useState(false);
+    
     const { elementRef: messageRef, isVisible: messageVisible } = useScrollAnimation(0.2, 300);
-    const { elementRef: iconsRef, isVisible: iconsVisible } = useScrollAnimation(0.3, 600);
+
+    // Icons appear after a delay
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIconsVisible(true);
+      }, 1000); // 1 second delay
+
+      return () => clearTimeout(timer);
+    }, []);
 
     return (
       <Jumbotron
@@ -23,26 +32,23 @@ const MainBody = React.forwardRef(
         <div id="stars"></div>
         <Container className="text-center">
           <h1 
-            ref={(el) => {
-              titleRef.current = el;
-              if (ref) ref.current = el;
-            }} 
-            className={`display-1 scroll-animate-up ${titleVisible ? 'animate-in' : ''}`}
+            ref={ref} 
+            className="display-1"
+            style={{ opacity: 1, transform: 'translateY(0)' }}
           >
             {title}
           </h1>
           <div 
             ref={messageRef}
-            className={`scroll-animate ${messageVisible ? 'animate-in' : ''}`}
+            className=""
           >
-            <Typist>
-              <div className="lead typist">
+            <Typist className="typing-container">
+              <div className="lead typist typing-text">
                 {message}
               </div>
             </Typist>
           </div>
           <div 
-            ref={iconsRef}
             className={`p-5 scroll-animate-stagger ${iconsVisible ? 'animate-in' : ''}`}
           >
             {icons.map((icon, index) => (
