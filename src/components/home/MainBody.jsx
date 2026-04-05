@@ -8,7 +8,7 @@ const MainBody = React.forwardRef(
   ({ gradient, title, message, icons }, ref) => {
     const [iconsVisible, setIconsVisible] = useState(false);
     
-    const { elementRef: messageRef, isVisible: messageVisible } = useScrollAnimation(0.2, 300);
+    const { elementRef: messageRef } = useScrollAnimation(0.2, 300);
 
     // Icons appear after a delay
     useEffect(() => {
