@@ -43,7 +43,7 @@ const about = {
   imageSize: 375,
   message:
     "Hi, Welcome to my internet nook! I'm just a girl, standing in front of a bug, pretending she knows what went wrong.",
-  resume: "https://docs.google.com/document/d/1YGWq76L01yuJpeM8zccYV8U_2gedBJxu56-lNyt1AnA/edit?usp=sharing",
+  resume: "/vaidehi_joshi_resume.pdf",
 };
 
 // PROJECTS SECTION
