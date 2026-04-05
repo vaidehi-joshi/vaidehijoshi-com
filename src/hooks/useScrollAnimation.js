@@ -12,7 +12,6 @@ export const useScrollAnimation = (threshold = 0.1, delay = 0) => {
 
       const element = elementRef.current;
       const elementTop = element.getBoundingClientRect().top;
-      const elementHeight = element.offsetHeight;
       const windowHeight = window.innerHeight;
 
       // Calculate when element should become visible
